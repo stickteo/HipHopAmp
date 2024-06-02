@@ -11,7 +11,7 @@ This project is divided into five parts:
 
 I wanted to make a headphone amplifier. The choice to use opamps was due to its simplicity and not needing to use any extra heatsinks.
 
-# Amplifier Circuit
+# Circuit Design
 I was inspired by ESP's Portable Amplifier article. I really like the simplicity of using opamps to drive headphones directly. I did build the crossfeed circuit... However, I just prefer not having crossfeed. Thus the final circuit simply involves volume adjustment, using a dual opamp to buffer the input then two dual opamps to drive the output.
 
 ## Main Circuit
@@ -29,9 +29,33 @@ The arrangement of U2 and U3 is very interesting. U2 takes the feedback from the
 
 Aside from the potential to add another buffer, the arrangement makes routing easier as well. This means the opamps can be lined up in a single line while the left and right channels can run on each side. This also means the power rails can be kept in a single line in the center.
 
+## Trying to get a negative rail.
+I was again inspired by ESP's article explaining how to use a boost converter to generate 24V and using 12V as ground.
 
+I tried all sorts of configurations:
+- Using the MC34063A to create -12V.
+- Using 5V to generate 12V and 24V using two MT3608 boost converters.
+- Using 12V to generate 24V using one MT3608 boost converter.
+- Using LM317 to make it less noisy.
+
+Only the third configuration worked. Though quite disappointingly noisy.
+
+### MC34063A
+So I found this IC inside a USB charger that plugs into a car's "cigarette lighter". Essentially the adapter takes in 12V and spits out 5V.
+
+The MC34063A is a control IC that can step-up, step-down, and invert voltages.
+
+I try to build a circuit with it but I ended up blowing up the chip. I think I didn't have the right inductor to properly use it. Building a switching supply can have all sorts of pitfalls. Though it's something I have to try again. Well, it was a bit too complicated and I just wanted a headphone amplifier.
+
+### MT3608
+Since trying to build a switching regulator failed, I turned my attention to cheap Chinese boost converters. The MT3608 seemed fairly small and compact.
+
+At first I simply try using the MT3608 to output 24V directly. There's always some weird noise even with a bench supply. I assume the regulator doesn't perform well when there's not much load. Seemingly the MT3608 picks up noise from its input power pin. It's also sensitive to output capacitance as well. (Trying a range of output capacitors to try to smooth the ripples away...)
+
+### 
 
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
 - Burr-Brown's AB-051 application note: https://sound-au.com/sboa031.pdf
 - ESP Simple DC Adapter Power Supply: https://sound-au.com/project43.htm
+- ESP Obtaining +/- Supplies From A Single Power Supply: https://sound-au.com/project192.htm
