@@ -50,7 +50,20 @@ I try to build a circuit with it but I ended up blowing up the chip. I think I d
 ### MT3608
 Since trying to build a switching regulator failed, I turned my attention to cheap Chinese boost converters. The MT3608 seemed fairly small and compact.
 
-At first I simply try using the MT3608 to output 24V directly. There's always some weird noise even with a bench supply. I assume the regulator doesn't perform well when there's not much load. Seemingly the MT3608 picks up noise from its input power pin. It's also sensitive to output capacitance as well. (Trying a range of output capacitors to try to smooth the ripples away...)
+#### 24V Boost
+At first I simply try using the MT3608 to output 24V directly. There's always some weird noise even with a bench supply. I assume the regulator doesn't perform well when there's not much load. Seemingly the MT3608 picks up noise from its input power pin. It's also sensitive to output capacitance as well.
+
+I was trying a range of output capacitors to try to smooth the ripples away... Generally, more output capacitance makes the ripple have a lower frequency while less capacitance (nothing) increases the frequency. Presumably it depends on the control circuit inside the IC. I would guess it's a comparator with some sort of hysteresis.
+
+I used an earbud to check the noise with no input. (Earbuds are more sensistive to noise compared to "audiophile" headphones.) It was tolerable with a bench supply feeding the MT308 to boost to 24V. (12V from the bench supply acts as ground.) When switching to an off the shelf 12V AC-DC adapter the noise got way worse.
+
+#### 5V to 12V and 24V Boost
+Using two MT3608 modules to get 12V and 24V from a single 5V supply doesn't work.
+
+The 5V goes to the input of both modules. With no load, 12V and 24V outputs. However, when I connect earbuds on the output the 12V output would jump up to 24V. I believe there is a sort of feedback loop created by the opamps...
+
+...
+
 
 ### 
 
