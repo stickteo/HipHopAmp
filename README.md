@@ -71,8 +71,14 @@ As a last ditch effort, I try using the LM317 to create a 24V line while using t
 
 Opamps do reject supply noise. However, noise on ground would render it worthless since the opamp only sees 0V and 24V on its negative and positive supply pins. Thus the noise would appear on the inputs. Of course, the 12V input should be regulated as well... Perhaps with another LM317. However, this would make the project overly complicated and too bulky.
 
+## Voltage Divider Circuit
+![Split supply circuit.](/images/circuit-split-supply.png)
 
-### 
+Of course, the circuit is completely taken from an ESP article.
+
+The circuit is really simple. Two RC circuits in series to create a stable voltage divider. Using that stable voltage,
+
+...
 
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
