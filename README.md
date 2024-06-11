@@ -60,9 +60,13 @@ I used an earbud to check the noise with no input. (Earbuds are more sensistive 
 #### 5V to 12V and 24V Boost
 Using two MT3608 modules to get 12V and 24V from a single 5V supply doesn't work.
 
-The 5V goes to the input of both modules. With no load, 12V and 24V outputs. However, when I connect earbuds on the output the 12V output would jump up to 24V. I believe there is a sort of feedback loop created by the opamps...
+The 5V goes to the input of both modules. With no load, 12V and 24V outputs. However, when I connect earbuds on the output, the 12V output would slowly rise to 24V minus a diode drop.
 
-...
+My best guess is that the MT3608 can't sink current. Presumably if the output sees a higher voltage than what is set, then the output transistor will not turn on. I can only guess the diode drop comes from the output of the opamp. (Since the 4558 opamp is not rail-to-rail.) Thus the output pours current into the 12V line and into the capacitors. Perhaps the slow rise is due to small currents flowing through the headphone. Thus the MT3608 can't regulate any voltages higher than its set point.
+
+There needs to be further testing. Perhaps just using a bench supply at 24V and setting the MT3608 to output 12V using 5V input. Then simply connecting a resistor from 24V to the 12V output. Overall though, the MT3608 is not a good application for generating intermediate voltages.
+
+
 
 
 ### 
