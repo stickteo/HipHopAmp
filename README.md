@@ -66,7 +66,10 @@ My best guess is that the MT3608 can't sink current. Presumably if the output se
 
 There needs to be further testing. Perhaps just using a bench supply at 24V and setting the MT3608 to output 12V using 5V input. Then simply connecting a resistor from 24V to the 12V output. Overall though, the MT3608 is not a good application for generating intermediate voltages.
 
+#### Using LM317 to generate 24V
+As a last ditch effort, I try using the LM317 to create a 24V line while using the MT3608 set at 27V. It works okay with a bench supply providing 12V. However, using an AC adapter to provide 12V results in a lot of noise.
 
+Opamps do reject supply noise. However, noise on ground would render it worthless since the opamp only sees 0V and 24V on its negative and positive supply pins. Thus the noise would appear on the inputs. Of course, the 12V input should be regulated as well... Perhaps with another LM317. However, this would make the project overly complicated and too bulky.
 
 
 ### 
