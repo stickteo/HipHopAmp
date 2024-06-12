@@ -98,6 +98,23 @@ So, I just start breadboarding the circuit.
 
 It's really straight forward... But a little too simple for comfort. It definitely works and the BJT will go into saturation. Although the base is commonly conceptualized as a switch with a small current, a more accurate view is a diode instead. The base and the emmitter is literally a diode junction. Without a base resistor, large amounts of current will flow from the base to the emmiter whenever a voltage higher than 0.7V is applied.
 
+By tapping the input with a bench supply, I would see several hundreds of milliamps being drawn. I suppose as long as the BJT doesn't get too hot, it would release the magic smoke... But yeah, the things you only "really" learn by purely building the circuit and not from reading a textbook.
+
+From there, I added a base resistor and tested with audio... It seemed a bit lacking and not bright enough.
+
+## Voltage Offset
+In my circuit, R5 and R6 form a voltage divider to set the offset to Q2. This offset should be just below a diode drop. With those values, around 0.5V. If it's too high, the LED will just stay on. Too low and the LED will blink too briefly and not as bright.
+
+A bad point about this is that it depends a lot on the 12V supply. ACDC adapters can have wide output... Sometimes around 13V.
+
+Perhaps to make it more supply agnostic I would use a diode with a resistor divider to create the offset instead.
+
+## Voltage Gain Amplifier
+I wanted the LEDs to blink more brightly, thus I implement a simple common-emmitter amplifier with emitter degeneration. 
+
+The gain is set by R3 and R4. I tried having max gain by ommitting R4... However, the effect becomes less subtle.
+
+
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
 - Burr-Brown's AB-051 application note: https://sound-au.com/sboa031.pdf
