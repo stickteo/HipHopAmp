@@ -93,12 +93,14 @@ Thus I search online something like "Audio LED" then came across an Instructable
 
 So, I just start breadboarding the circuit.
 
-## BJT LED Driver
-...
+## Instructables BJT LED Driver
+![CozzBP Audio Reactive LED Circuit](/images/circuit-instructables-cozzbp.png)
+
+It's really straight forward... But a little too simple for comfort. It definitely works and the BJT will go into saturation. Although the base is commonly conceptualized as a switch with a small current, a more accurate view is a diode instead. The base and the emmitter is literally a diode junction. Without a base resistor, large amounts of current will flow from the base to the emmiter whenever a voltage higher than 0.7V is applied.
 
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
 - Burr-Brown's AB-051 application note: https://sound-au.com/sboa031.pdf
 - ESP Simple DC Adapter Power Supply: https://sound-au.com/project43.htm
 - ESP Obtaining +/- Supplies From A Single Power Supply: https://sound-au.com/project192.htm
-- Audio Reactive LED Circuit: https://www.instructables.com/Creating-An-Audio-Reactive-LED-Circuit/
+- CozzBP Audio Reactive LED Circuit: https://www.instructables.com/Creating-An-Audio-Reactive-LED-Circuit/
