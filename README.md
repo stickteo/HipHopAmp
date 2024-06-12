@@ -80,8 +80,25 @@ The circuit is really simple. Two RC circuits in series to create a stable volta
 
 With the way the schematic is drawn, it's a little misleading that one pushes and the other pulls current. In actuality, using two opamp means doubling the amount of current available to supply to the new rail. Since the 4558 is a dual opamp, might as well as use both.
 
+# LED Music Visualizer
+![Hip Hop Led](/images/circuit-hiphopled.png)
+
+A certain special person wanted blinky lights, so I added blinky lights.
+
+I wanted something simple and compact... Thus came brainstorming ideas...
+
+A complex idea is to throw an Arduino Nano at the problem. Get the Nano to read the audio through its analog pins... Do some sort of processing... Then simply output to an LED. However, I don't think it really fits the "theme" of my project.
+
+Thus I search online something like "Audio LED" then came across an Instructables project. It's really simple, simply let an audio signal input into an NPN BJT to control an LED. Very "basic" stuff but some details have to be correct.
+
+So, I just start breadboarding the circuit.
+
+## BJT LED Driver
+...
+
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
 - Burr-Brown's AB-051 application note: https://sound-au.com/sboa031.pdf
 - ESP Simple DC Adapter Power Supply: https://sound-au.com/project43.htm
 - ESP Obtaining +/- Supplies From A Single Power Supply: https://sound-au.com/project192.htm
+- Audio Reactive LED Circuit: https://www.instructables.com/Creating-An-Audio-Reactive-LED-Circuit/
