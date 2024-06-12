@@ -76,9 +76,9 @@ Opamps do reject supply noise. However, noise on ground would render it worthles
 
 Of course, the circuit is completely taken from an ESP article.
 
-The circuit is really simple. Two RC circuits in series to create a stable voltage divider. Using that stable voltage,
+The circuit is really simple. Two RC circuits in series to create a stable voltage divider. Using that stable voltage, the opamp would buffer the voltage creating a new stable middle voltage.
 
-...
+With the way the schematic is drawn, it's a little misleading that one pushes and the other pulls current. In actuality, using two opamp means doubling the amount of current available to supply to the new rail. Since the 4558 is a dual opamp, might as well as use both.
 
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
