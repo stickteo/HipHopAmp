@@ -114,6 +114,19 @@ I wanted the LEDs to blink more brightly, thus I implement a simple common-emmit
 
 The gain is set by R3 and R4. I tried having max gain by ommitting R4... However, the effect becomes less subtle.
 
+To calculate R1, R2, R3, and R4:
+- V_C is VCC/2 which is 6V
+- Desired gain, G, is 20
+- Desired quiescent current, I_C, is 1~2mA
+- R3 = VCC/2/I_C = 6V / 2mA = ~3kOhm
+- R4 = R3/G = 3kOhm / 20 = ~150Ohm
+- V_E = R4*I_C = 150Ohm * 2mA = ~0.3V
+- V_B = V_E + 0.6V = 0.3V + 0.6V = ~0.9V
+- I_B = I_C/10 = 2mA / 10 = 0.2mA
+- R2 = V_B/I_B = 0.9V / 0.2mA = ~4.5kOhm
+- R1 = (VCC-V_B)/I_B = 11.1V / 0.2mA = ~55.5kOhm
+
+I try to choose convenient values for the actual circuit. Resistances can be slighly lowered to a more convenient value.
 
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
