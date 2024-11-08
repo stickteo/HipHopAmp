@@ -128,6 +128,34 @@ To calculate R1, R2, R3, and R4:
 
 I try to choose convenient values for the actual circuit. Resistances can be slighly lowered to a more convenient value.
 
+# Circuit Routing
+![PCB Routing](/images/pcb-hiphopamp.png)
+![PCB Routing Render](/images/pcb-hiphopamp-3d.png)
+
+I want the circuit to be easily assembled by hand soldering. This meant using through-hole components. A big aspect is minimizing the amount of soldering done and using minimal amount of links.
+
+Using KiCad to draw the schematic and route avoids making a lot of mistakes. I make sure to render in 3D to not make the mistake of flipping the IC to the wrong side. (It does happen.)
+
+I use a perforated board to construct the circuit. This simply means setting 0.1in spacing inside KiCad and routing. As you can see in the images, everything is tightly packed together. Multiple iterations are made... Rotating resistors in one way... Rotating it in another way.
+
+Several goals under consideration:
+- Ease of construction
+- Minimize traces
+- Minimize area
+- Minimize bridges
+
+Having the schematic and routing up makes it easy to double-check components while soldering them in.
+
+Capacitors are forgiving. We can always use a lower voltage capicitor that can fit. For proper production though, this would not be good for machines to assemble. Though for hand assembly, I am okay with the trade-off to achieve a more compact construction as well as decrease the amount of traces I need to create. I mockup the circuit while routing to make sure everything can fit.
+
+Connectors are really space consuming as well as impose more design limitations. I opt to forgo connectors with direct soldering instead. Having connectors will require more traces to be routed and soldered.
+
+For high-volume production, all parts will need to be SMD. Using a single layer can potentially lower the cost even further. Otherwise having two layers will allow easier routing. The choice of connectors will be especially important.
+
+For DIY, we should allow ourselves the flexibility to use whatever connectors we want or what types of potentiometers we can have. Just soldering a wire is several times easier than trying to crimp custom connectors. Connectors shouldn't be used liberally as they impose a lot of constraints (and costs). Chinese engineering does really build things down to a cost. A lot of tradeoffs must be made to do so.
+
+With the final routing, three wires must be soldered (the blue traces). I wanted to prioritize signal traces over power traces. The wiring will be longer than traces.
+
 # Resources
 - ESP Portable Amplifier: https://sound-au.com/project109.htm
 - Burr-Brown's AB-051 application note: https://sound-au.com/sboa031.pdf
